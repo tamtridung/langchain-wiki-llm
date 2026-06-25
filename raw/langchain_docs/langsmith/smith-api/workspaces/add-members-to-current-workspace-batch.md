@@ -1,0 +1,403 @@
+---
+title: Add Members To Current Workspace Batch
+source: https://docs.langchain.com/langsmith/smith-api/workspaces/add-members-to-current-workspace-batch.md
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.langchain.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Add Members To Current Workspace Batch
+
+> Batch invite up to 500 users to the current workspace and organization.
+
+
+
+## OpenAPI
+
+````yaml /langsmith/langsmith-platform-openapi.json post /api/v1/workspaces/current/members/batch
+openapi: 3.1.0
+info:
+  title: LangSmith
+  description: >+
+    The LangSmith API is used to programmatically create and manage LangSmith
+    resources.
+
+
+    ## Host
+
+    https://api.smith.langchain.com
+
+
+    ## Authentication
+
+    To authenticate with the LangSmith API, set the `X-Api-Key` header
+
+    to a valid [LangSmith API
+    key](https://docs.langchain.com/langsmith/create-account-api-key#create-an-api-key).
+
+  version: 0.1.0
+servers:
+  - url: /
+security: []
+tags:
+  - name: run
+    x-group: Tracing
+  - name: runs
+    x-group: Tracing
+  - name: sessions
+    x-group: Tracing
+  - name: tracer-sessions
+    x-group: Tracing
+  - name: datasets
+    x-group: Datasets
+  - name: examples
+    x-group: Datasets
+  - name: evaluators
+    x-group: Evaluation
+  - name: experiment-view-overrides
+    x-group: Evaluation
+  - name: experiments
+    x-group: Evaluation
+  - name: annotation-queues
+    x-group: Feedback & Annotation
+  - name: annotation_queues
+    x-group: Feedback & Annotation
+  - name: feedback
+    x-group: Feedback & Annotation
+  - name: feedback-configs
+    x-group: Feedback & Annotation
+  - name: alert_rules
+    x-group: Monitoring
+  - name: bulk-exports
+    x-group: Monitoring
+  - name: charts
+    x-group: Monitoring
+  - name: commits
+    x-group: Prompts & Playground
+  - name: directories
+    x-group: Prompts & Playground
+  - name: hub_environments
+    x-group: Prompts & Playground
+  - name: playground-settings
+    x-group: Prompts & Playground
+  - name: prompt-webhooks
+    x-group: Prompts & Playground
+  - name: prompts
+    x-group: Prompts & Playground
+  - name: tag-transitions
+    x-group: Prompts & Playground
+  - name: comments
+    x-group: Prompt Hub
+  - name: likes
+    x-group: Prompt Hub
+  - name: optimization-jobs
+    x-group: Prompt Hub
+  - name: ownerships
+    x-group: Prompt Hub
+  - name: repos
+    x-group: Prompt Hub
+  - name: settings
+    x-group: Prompt Hub
+  - name: tags
+    x-group: Prompt Hub
+  - name: integrations
+    x-group: Integrations & Tools
+  - name: mcp
+    x-group: Integrations & Tools
+  - name: mcp_vendors
+    x-group: Integrations & Tools
+  - name: oauth
+    x-group: Integrations & Tools
+  - name: tools
+    x-group: Integrations & Tools
+  - name: gateway-policies
+    x-group: LLM Gateway
+  - name: sandboxes
+    x-group: Sandboxes
+  - name: issues
+    x-group: Issues
+  - name: issues-agent
+    x-group: Issues
+  - name: Organizations
+    x-group: Administration
+  - name: SCIM Tokens
+    x-group: Administration
+  - name: TTL Settings
+    x-group: Administration
+  - name: access_policies
+    x-group: Administration
+  - name: api-key
+    x-group: Administration
+  - name: audit-logs
+    x-group: Administration
+  - name: auth
+    x-group: Administration
+  - name: aws_marketplace
+    x-group: Administration
+  - name: data_planes
+    x-group: Administration
+  - name: me
+    x-group: Administration
+  - name: orgs
+    x-group: Administration
+  - name: service-accounts
+    x-group: Administration
+  - name: tenant
+    x-group: Administration
+  - name: ttl-settings
+    x-group: Administration
+  - name: usage-limits
+    x-group: Administration
+  - name: workspaces
+    x-group: Administration
+  - name: ace
+    x-group: System
+  - name: backfills
+    x-group: System
+  - name: features
+    x-group: System
+  - name: info
+    x-group: System
+  - name: model-price-map
+    x-group: System
+  - name: public
+    x-group: System
+  - name: fleet secrets
+  - name: fleet tenants
+  - name: fleet users
+paths:
+  /api/v1/workspaces/current/members/batch:
+    post:
+      tags:
+        - workspaces
+      summary: Add Members To Current Workspace Batch
+      description: Batch invite up to 500 users to the current workspace and organization.
+      operationId: >-
+        add_members_to_current_workspace_batch_api_v1_workspaces_current_members_batch_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/PendingIdentityCreate'
+              type: array
+              title: Payloads
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PendingIdentity'
+                type: array
+                title: >-
+                  Response Add Members To Current Workspace Batch Api V1
+                  Workspaces Current Members Batch Post
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+        - API Key: []
+        - Tenant ID: []
+        - Bearer Auth: []
+        - Organization ID: []
+components:
+  schemas:
+    PendingIdentityCreate:
+      properties:
+        email:
+          type: string
+          title: Email
+        read_only:
+          type: boolean
+          title: Read Only
+          default: false
+          deprecated: true
+        role_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Role Id
+        workspace_ids:
+          anyOf:
+            - items:
+                type: string
+                format: uuid
+              type: array
+            - type: 'null'
+          title: Workspace Ids
+        workspace_role_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Workspace Role Id
+        password:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Password
+        full_name:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Full Name
+      type: object
+      required:
+        - email
+      title: PendingIdentityCreate
+    PendingIdentity:
+      properties:
+        email:
+          type: string
+          title: Email
+        read_only:
+          type: boolean
+          title: Read Only
+          default: false
+          deprecated: true
+        role_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Role Id
+        workspace_ids:
+          anyOf:
+            - items:
+                type: string
+                format: uuid
+              type: array
+            - type: 'null'
+          title: Workspace Ids
+        workspace_role_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Workspace Role Id
+        password:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Password
+        full_name:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Full Name
+        access_scope:
+          $ref: '#/components/schemas/AccessScope'
+          default: workspace
+        id:
+          type: string
+          format: uuid
+          title: Id
+        user_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: User Id
+        tenant_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Tenant Id
+        organization_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Organization Id
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        role_name:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Role Name
+        org_role_id:
+          anyOf:
+            - type: string
+              format: uuid
+            - type: 'null'
+          title: Org Role Id
+        org_role_name:
+          anyOf:
+            - type: string
+            - type: 'null'
+          title: Org Role Name
+      type: object
+      required:
+        - email
+        - id
+        - created_at
+      title: PendingIdentity
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    AccessScope:
+      type: string
+      enum:
+        - organization
+        - workspace
+      title: AccessScope
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
+  securitySchemes:
+    API Key:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    Tenant ID:
+      type: apiKey
+      in: header
+      name: X-Tenant-Id
+    Bearer Auth:
+      type: http
+      description: >-
+        Bearer tokens are used to authenticate from the UI. Must also specify
+        x-tenant-id or x-organization-id (for org scoped apis).
+      scheme: bearer
+    Organization ID:
+      type: apiKey
+      in: header
+      name: X-Organization-Id
+
+````

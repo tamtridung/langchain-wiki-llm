@@ -1,0 +1,219 @@
+{
+  "main": {
+    "id": "bc0138c921588b02",
+    "type": "split",
+    "children": [
+      {
+        "id": "9b98dfb76caf0e1a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "55d1db467754b526",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ce64a1ee7b47f380",
+    "type": "split",
+    "children": [
+      {
+        "id": "33b954cb998ba359",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76dba23e8fbb9b1a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1a0054050b314210",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c77e01ad0c888d99",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "2c62f17a08af4fd4",
+    "type": "split",
+    "children": [
+      {
+        "id": "056dff442d4d7547",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "80ee384e2026d515",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "3b9602a065d983ff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "wiki/index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from index"
+            }
+          },
+          {
+            "id": "a58dd1bd09d794ff",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "252374f9b5897826",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "679ce56a2d22259f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "wiki/index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of index"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "55d1db467754b526",
+  "lastOpenFiles": [
+    "wiki/sources/agent-planning-patterns.md",
+    "raw/new_docs/plan-and-execute.ipynb",
+    "raw/new_docs/Plan-and-Execute Agents.md",
+    "raw/new_docs/multi-agent-collaboration.ipynb",
+    "raw/new_docs/hierarchical_agent_teams.ipynb",
+    "raw/new_docs",
+    "raw/Plan-and-Execute Agents.md",
+    "raw/plan-and-execute.ipynb",
+    "raw/multi-agent-collaboration.ipynb",
+    "raw/hierarchical_agent_teams.ipynb",
+    "wiki/concepts/langgraph-auth.md",
+    "wiki/concepts/langgraph-functional-api.md",
+    "wiki/concepts/langgraph-store.md",
+    "wiki/concepts/langgraph-sdk.md",
+    "wiki/sources/langgraph-advanced.md",
+    "wiki/concepts/create-agent.md",
+    "raw/langchain_docs/langsmith/managed-deep-agents-api-overview.md",
+    "langsmith/managed-deep-agents-mcp.md",
+    "langsmith/managed-deep-agents-overview.md",
+    "raw/langchain_docs/langsmith/managed-deep-agents-api.md",
+    "langsmith/desktop.ini",
+    "langsmith",
+    "raw/langchain_docs/langsmith/self-host-egress.md",
+    "wiki/index.md",
+    "oss/python/langchain/mcp.md",
+    "oss/python/langchain",
+    "wiki/concepts/tracing.md",
+    "wiki/concepts/langsmith-overview.md",
+    "wiki/concepts/deployment.md",
+    "wiki/sources/langsmith-deployment.md",
+    "wiki/concepts/retrievers.md",
+    "wiki/concepts/rag.md",
+    "wiki/sources/langsmith-evaluation.md",
+    "raw/langchain_docs/langsmith/sandbox-service-urls.md",
+    "langsmith/cloud.md",
+    "wiki/concepts/datasets.md"
+  ]
+}
