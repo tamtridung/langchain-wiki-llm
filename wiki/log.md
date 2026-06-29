@@ -6,6 +6,21 @@ updated: 2026-06-25
 
 # Nhật Ký Thay Đổi
 
+## 2026-06-29 — Crawl Deep Agents Docs
+
+- **Crawl toàn bộ Deep Agents framework docs** từ `docs.langchain.com/oss/python/deepagents/`
+- **Tạo thư mục `raw/deepagents/`** với 23 page đã crawl:
+  - Tổng quan: `overview.md`
+  - Bắt đầu: `quickstart.md`, `customization.md`, `models.md`
+  - Môi trường thực thi: `tools.md`, `backends.md`, `permissions.md`, `sandboxes.md`, `interpreters.md`, `event-streaming.md`
+  - Quản lý ngữ cảnh: `skills.md`, `context-engineering.md`, `multimodal.md`
+  - Ủy quyền: `subagents.md`, `dynamic-subagents.md`
+  - Điều hướng: `human-in-the-loop.md`
+  - Production: `going-to-production.md`, `profiles.md`
+  - So sánh: `comparison.md`
+  - Tích hợp IDE: `acp.md`, `code-overview.md`
+  - Frontend UI: `frontend-todo-list.md`, `frontend-sandbox.md`
+
 ## 2026-06-25 — Khởi Tạo Wiki
 
 - **Tạo cấu trúc thư mục:** entities/, concepts/, sources/, references/
@@ -128,3 +143,35 @@ updated: 2026-06-25
   - `concepts/agent-architectures.md` — Thêm 3 planning patterns: Plan-and-Execute, ReWOO, LLMCompiler + so sánh chi tiết
   - `concepts/multi-agent.md` — Thêm Hierarchical Agent Teams + Multi-Agent Network (peer-to-peer) với Command(goto=…) pattern
 - **Cập nhật index.md** — Thêm source page mới
+
+## 2026-06-29 — Ingest Deep Agents Docs (30 files từ raw/deep_agents_docs/)
+
+- **Đọc toàn bộ 30 file** từ `raw/deep_agents_docs/` — gồm Deep Agents SDK (23 files) + Deep Agents Code (8 files) + Managed Deep Agents overview
+- **Tạo source page mới:** `sources/deep-agents-sdk.md` — Tổng hợp kiến trúc, backend system, built-in tools, so sánh với Claude Agent SDK
+- **Tạo 19 concept pages mới:**
+  - `concepts/deep-agents-overview.md` — Deep Agents SDK overview, quickstart, harness architecture, built-in tools
+  - `concepts/deep-agents-customization.md` — `create_deep_agent` full signature, parameters, middleware, prompt assembly
+  - `concepts/deep-agents-memory.md` — Long-term memory, agent-scoped vs user-scoped, background consolidation
+  - `concepts/deep-agents-backends.md` — 7 backend types: StateBackend, FilesystemBackend, StoreBackend, CompositeBackend, etc.
+  - `concepts/deep-agents-permissions.md` — Path-based allow/deny/interrupt, first-match-wins
+  - `concepts/deep-agents-profiles.md` — HarnessProfile, ProviderProfile, merge semantics, config files
+  - `concepts/deep-agents-skills.md` — Progressive disclosure, SKILL.md, frontmatter, community skills
+  - `concepts/deep-agents-subagents.md` — Sync subagents, dictionary spec, CompiledSubAgent, AGENTS.md
+  - `concepts/deep-agents-async-subagents.md` — Background subagents, Agent Protocol, lifecycle management
+  - `concepts/deep-agents-context-engineering.md` — Input/runtime context, context compression, summarization
+  - `concepts/deep-agents-event-streaming.md` — v3 event streaming API, subagent projections, interleave, concurrent
+  - `concepts/deep-agents-multimodal.md` — Multimodal I/O, `read_file` support, custom tool outputs
+  - `concepts/deep-agents-interpreters.md` — QuickJS interpreter, PTC, dynamic subagents, snapshotting
+  - `concepts/deep-agents-rubric.md` — LLM-as-a-judge grading, RubricMiddleware, self-evaluation loop
+  - `concepts/deep-agents-acp.md` — Agent Client Protocol, Zed/JetBrains/VS Code integration
+  - `concepts/deep-agents-production.md` — Production guide, multi-tenancy, auth, async, guardrails
+  - `concepts/deep-agents-comparison.md` — So sánh Deep Agents vs Claude Agent SDK
+  - `concepts/deep-agents-code-overview.md` — dcode CLI, capabilities, built-in tools, CLI reference
+  - `concepts/deep-agents-code-configuration.md` — config.toml, provider credentials, model resolution
+  - `concepts/deep-agents-code-data-locations.md` — Directory structure, precedence rules, cleanup
+- **Cập nhật concept pages hiện có:**
+  - `concepts/managed-deep-agents.md` — Mở rộng với full workflow, backend types, limits, API reference
+- **Cập nhật index.md** — Thêm 3 sections: Deep Agents SDK, Deep Agents Code, source page
+- **Cập nhật overview.md** — Thêm Deep Agents layer + mở rộng architecture diagram
+- **Cập nhật CLAUDE.md** — Cập nhật cấu trúc thư mục với Deep Agents concepts
+- **Tổng kết:** Wiki từ ~66 → **~86 files**

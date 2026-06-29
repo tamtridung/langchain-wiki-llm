@@ -93,12 +93,55 @@ LangChain giải quyết:
 7. Production ────────────────────────── LangServe, Monitoring, CI/CD
 ```
 
+### 5. Deep Agents (Production-Grade Agent Harness)
+
+**Deep Agents** là thư viện Python mã nguồn mở xây dựng trên LangGraph, cung cấp harness đầy đủ cho AI agent production:
+
+- **`create_deep_agent`** — Hàm trung tâm tạo agent với model, tools, memory, skills, subagents
+- **Pluggable backends** — StateBackend, FilesystemBackend, StoreBackend, CompositeBackend, sandbox backends
+- **Memory** — Long-term memory qua StoreBackend (agent-scoped, user-scoped)
+- **Skills** — Progressive disclosure, on-demand knowledge loading
+- **Subagents** — Sync + async subagents với Agent Protocol
+- **Middleware stack** — Planning, Filesystem, Skills, HITL, Summarization, etc.
+- **Event streaming** — v3 API với subagent projections
+- **Permissions** — Path-based filesystem access control
+- **Profiles** — HarnessProfile + ProviderProfile cho per-model tuning
+- **Interpreters** — QuickJS code interpreter + programmatic tool calling
+- **Rubric** — LLM-as-a-judge grading với self-evaluation loop
+- **ACP** — Agent Client Protocol cho IDE integration
+
+**Deep Agents Code** (`dcode`) là CLI coding agent built trên SDK — terminal-based coding assistant với sandbox support, MCP tools, web search, và tracing.
+
+## Kiến Trúc Mở Rộng
+
+```
+┌──────────────────────────────────────────────────┐
+│                  LangChain Core                   │
+│  Runnable | LCEL | Prompts | Models | Parsers    │
+│  Memory | Tools | Callbacks | Retrievers          │
+├──────────────────────────────────────────────────┤
+│                   LangGraph                       │
+│  StateGraph | Nodes/Edges | Checkpointing         │
+│  Streaming | HIL | Multi-Agent                    │
+├──────────────────────────────────────────────────┤
+│                Deep Agents SDK                    │
+│  create_deep_agent | Backends | Memory | Skills   │
+│  Subagents | Interpreters | Profiles | ACP        │
+├───────────────────────────┬──────────────────────┤
+│       LangSmith           │    Deep Agents Code   │
+│  Tracing | Evaluation     │   dcode CLI | Sandbox │
+│  Datasets | Monitoring    │   MCP | Web Search    │
+│  Managed Deep Agents      │   Auto Memory | Skills│
+└───────────────────────────┴──────────────────────┘
+```
+
 ## Nguồn Tham Khảo (Ingested từ raw/)
 
-Wiki đã ingest toàn bộ nội dung từ `raw/langchain_docs/`:
+Wiki đã ingest toàn bộ nội dung từ `raw/langchain_docs/` và `raw/deep_agents_docs/`:
 
 | Chủ Đề | Source Pages | Số File Gốc |
 |--------|-------------|-------------|
+| **Deep Agents SDK** | [source](../sources/deep-agents-sdk.md) | **30 files** (overview, customization, backends, memory, skills, subagents, streaming, ACP, v.v.) |
 | Observability & Tracing | [source](../sources/langsmith-observability.md) | 6 files |
 | Evaluation | [source](../sources/langsmith-evaluation.md) | 13 files |
 | Deployment & Cloud | [source](../sources/langsmith-deployment.md) | 5 files |
@@ -118,6 +161,7 @@ Wiki đã ingest toàn bộ nội dung từ `raw/langchain_docs/`:
 - [LangGraph Overview](../concepts/langgraph-overview.md) — Agent orchestration
 - [LangSmith Overview](../concepts/langsmith-overview.md) — Observability & evaluation
 - [LCEL](../concepts/lcel.md) — LangChain Expression Language
+- [Deep Agents Overview](../concepts/deep-agents-overview.md) — Deep Agents SDK
 - [Agent Architectures](../concepts/agent-architectures.md) — Các mẫu Agent
 - [Monitoring](../concepts/monitoring.md) — Production monitoring & alerts
 - [Administration](../concepts/administration.md) — Auth, RBAC & billing

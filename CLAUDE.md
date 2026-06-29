@@ -17,7 +17,7 @@ Langchain-wiki/
 ├── wiki/                  ← Wiki do LLM tạo ra (Claude viết; bạn đọc)
 │   ├── index.md           ← Danh mục tổng thể tất cả các trang
 │   ├── log.md             ← Nhật ký theo thời gian, chỉ thêm vào cuối
-│   ├── overview.md        ← Tổng quan hệ sinh thái LangChain (4-layer: LangChain, LangGraph, LangSmith, LangServe)
+│   ├── overview.md        ← Tổng quan hệ sinh thái LangChain (5-layer: LangChain, LangGraph, Deep Agents, LangSmith, LangServe)
 │   ├── entities/          ← Thực thể (Harrison Chase, LangChain Inc.)
 │   ├── concepts/          ← Khái niệm then chốt (chia theo nhóm)
 │   │   ├── langchain-core.md      ← Framework nền tảng
@@ -56,8 +56,28 @@ Langchain-wiki/
 │   │   ├── sandboxes.md           ← Isolated code execution envs
 │   │   ├── engine.md              ← Auto-fix engine
 │   │   ├── llm-gateway.md         ← LLM proxy & spend control
-│   │   └── deployment.md          ← LangServe, Agent Server, self-hosted, cron
-│   ├── sources/           ← 19 trang tóm tắt nguồn từ raw/ (tổng hợp ~324 file LangSmith + 39 API endpoints)
+│   │   ├── deployment.md          ← LangServe, Agent Server, self-hosted, cron
+│   │   ├── deep-agents-overview.md              ← Deep Agents SDK overview
+│   │   ├── deep-agents-customization.md         ← create_deep_agent params
+│   │   ├── deep-agents-memory.md                ← Long-term memory
+│   │   ├── deep-agents-backends.md              ← Filesystem backends
+│   │   ├── deep-agents-permissions.md           ← Path-based access control
+│   │   ├── deep-agents-profiles.md              ← Harness & provider profiles
+│   │   ├── deep-agents-skills.md                ← Skills system
+│   │   ├── deep-agents-subagents.md             ← Sync subagents
+│   │   ├── deep-agents-async-subagents.md       ← Background subagents
+│   │   ├── deep-agents-context-engineering.md   ← Context management
+│   │   ├── deep-agents-event-streaming.md       ← v3 event streaming
+│   │   ├── deep-agents-multimodal.md            ← Multimodal I/O
+│   │   ├── deep-agents-interpreters.md          ← QuickJS interpreter
+│   │   ├── deep-agents-rubric.md                ← LLM-as-a-judge grading
+│   │   ├── deep-agents-acp.md                   ← Agent Client Protocol
+│   │   ├── deep-agents-production.md            ← Production guide
+│   │   ├── deep-agents-comparison.md            ← vs Claude Agent SDK
+│   │   ├── deep-agents-code-overview.md         ← dcode CLI overview
+│   │   ├── deep-agents-code-configuration.md    ← dcode config & providers
+│   │   └── deep-agents-code-data-locations.md   ← dcode data directories
+│   ├── sources/           ← 21 trang tóm tắt nguồn từ raw/ (tổng hợp ~324 file LangSmith + 30 Deep Agents + 39 API endpoints)
 │   │   ├── langsmith-observability.md
 │   │   ├── langsmith-evaluation.md
 │   │   ├── langsmith-deployment.md
@@ -68,6 +88,7 @@ Langchain-wiki/
 │   │   ├── langsmith-advanced.md
 │   │   ├── langsmith-admin.md
 │   │   ├── langsmith-data-management.md
+│   │   ├── deep-agents-sdk.md     ← 30 files Deep Agents SDK (overview, customization, backends, v.v.)
 │   │   └── api-reference.md
 │   └── references/        ← Tài liệu tham khảo (so sánh, cheat sheets, v.v.)
 ```
@@ -183,10 +204,15 @@ Cập nhật sơ đồ cấu trúc thư mục trong file này khi thêm concept/
 │                     LangGraph                         │
 │  StateGraph | Nodes/Edges | Checkpointing            │
 │  Streaming | HIL | Multi-Agent                       │
+├──────────────────────────────────────────────────────┤
+│                  Deep Agents SDK                      │
+│  create_deep_agent | Backends | Memory | Skills      │
+│  Subagents | Interpreters | Profiles | ACP           │
 ├───────────────────────────┬──────────────────────────┤
-│       LangSmith           │       LangServe          │
-│  Tracing | Evaluation     │  Deployment | REST API   │
-│  Datasets | Monitoring    │  Streaming | Monitoring  │
+│       LangSmith           │    Deep Agents Code      │
+│  Tracing | Evaluation     │   dcode CLI | Sandbox    │
+│  Datasets | Monitoring    │   MCP | Auto Memory      │
+│  Managed Deep Agents      │   Skills | Web Search    │
 └───────────────────────────┴──────────────────────────┘
 ```
 

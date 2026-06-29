@@ -1,7 +1,7 @@
 ---
 tags: [langchain, index]
 created: 2026-06-25
-updated: 2026-06-25
+updated: 2026-06-29
 ---
 
 # LangChain Wiki — Danh Mục
@@ -56,6 +56,38 @@ Wiki kiến thức toàn diện về LangChain ecosystem — từ core framework
 | [Agent Architectures](concepts/agent-architectures.md) | Kiến trúc Agent — ReAct, plan-and-execute, ReWOO, LLMCompiler |
 | [create_agent](concepts/create-agent.md) | Agent harness đơn giản — middleware, tools, system prompt |
 
+### Deep Agents SDK (Production-Grade Agent Harness)
+
+| Trang | Mô Tả |
+|-------|-------|
+| [Deep Agents Overview](concepts/deep-agents-overview.md) | Tổng quan Deep Agents SDK — `create_deep_agent`, harness, built-in tools |
+| [Deep Agents Customization](concepts/deep-agents-customization.md) | Toàn bộ tham số `create_deep_agent` — model, tools, middleware, backend |
+| [Deep Agents Models](concepts/chat-models.md) | Supported models, eval scores, provider profiles, runtime selection |
+| [Deep Agents Memory](concepts/deep-agents-memory.md) | Long-term memory — StoreBackend, agent-scoped, user-scoped |
+| [Deep Agents Backends](concepts/deep-agents-backends.md) | Pluggable filesystem — StateBackend, FilesystemBackend, StoreBackend, CompositeBackend |
+| [Deep Agents Permissions](concepts/deep-agents-permissions.md) | Path-based allow/deny/interrupt rules |
+| [Deep Agents Profiles](concepts/deep-agents-profiles.md) | HarnessProfile & ProviderProfile — per-model tuning |
+| [Deep Agents Skills](concepts/deep-agents-skills.md) | Progressive disclosure skills — SKILL.md, discovery, community skills |
+| [Deep Agents Subagents](concepts/deep-agents-subagents.md) | Synchronous subagents — dictionary spec, CompiledSubAgent, AGENTS.md |
+| [Deep Agents Async Subagents](concepts/deep-agents-async-subagents.md) | Background subagents — Agent Protocol, start/check/update/cancel |
+| [Deep Agents Context Engineering](concepts/deep-agents-context-engineering.md) | Input/runtime context, compression, summarization, offloading |
+| [Deep Agents Event Streaming](concepts/deep-agents-event-streaming.md) | v3 event streaming API — subagents, interleave, concurrent consumption |
+| [Deep Agents Multimodal](concepts/deep-agents-multimodal.md) | Multimodal I/O — images, audio, video, PDF |
+| [Deep Agents Interpreters](concepts/deep-agents-interpreters.md) | QuickJS code interpreter, PTC (programmatic tool calling), dynamic subagents |
+| [Deep Agents Rubric](concepts/deep-agents-rubric.md) | LLM-as-a-judge grading — self-evaluation & iteration |
+| [Deep Agents Human-in-the-loop](concepts/human-in-the-loop.md) | interrupt_on, InterruptOnConfig, conditional interrupts |
+| [Deep Agents ACP](concepts/deep-agents-acp.md) | Agent Client Protocol — tích hợp IDE (Zed, JetBrains, VS Code) |
+| [Deep Agents Production](concepts/deep-agents-production.md) | Production guide — multi-tenancy, auth, sandboxes, async |
+| [Deep Agents Comparison](concepts/deep-agents-comparison.md) | So sánh với Claude Agent SDK |
+
+### Deep Agents Code (CLI — `dcode`)
+
+| Trang | Mô Tả |
+|-------|-------|
+| [dcode Overview](concepts/deep-agents-code-overview.md) | dcode CLI — quickstart, built-in tools, CLI reference, capabilities |
+| [dcode Configuration](concepts/deep-agents-code-configuration.md) | config.toml, provider credentials, /auth, model resolution, MCP |
+| [dcode Data Locations](concepts/deep-agents-code-data-locations.md) | Directory structure, precedence rules, .deepagents vs .agents |
+
 ### LangGraph (Agent Orchestration)
 
 | Trang | Mô Tả |
@@ -104,6 +136,7 @@ Wiki kiến thức toàn diện về LangChain ecosystem — từ core framework
 
 | Trang | Mô Tả |
 |-------|-------|
+| [Deep Agents SDK](sources/deep-agents-sdk.md) | Tổng hợp 30 file Deep Agents SDK — overview, customization, backends, memory, skills, subagents, streaming, ACP, v.v. |
 | [LangSmith Observability](sources/langsmith-observability.md) | Observability & tracing source docs (6 files) |
 | [LangSmith Evaluation](sources/langsmith-evaluation.md) | Evaluation source docs (13 files) |
 | [LangSmith Deployment](sources/langsmith-deployment.md) | Deployment & cloud source docs (5 files) |
@@ -132,6 +165,7 @@ Wiki kiến thức toàn diện về LangChain ecosystem — từ core framework
 2. RAG:         Document Loaders → Text Splitters → Embeddings → Vector Stores → Retrievers
 3. Tools:       Tools → Agent Architectures
 4. LangGraph:   Overview → StateGraph → Nodes/Edges → Checkpointing → HIL
-5. Nâng cao:    Multi-Agent → Streaming → Evaluation → Deployment
-6. Chuyên sâu:  LangSmith Tracing → Datasets → Experiments
+5. Deep Agents: Overview → Customization → Backends → Memory → Skills → Subagents → Production
+6. Nâng cao:    Multi-Agent → Streaming → Evaluation → Deployment
+7. Chuyên sâu:  LangSmith Tracing → Datasets → Experiments
 ```
